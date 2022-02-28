@@ -99,7 +99,8 @@ resource ase 'Microsoft.Web/hostingEnvironments@2021-03-01' = {
   tags: tags
   kind: 'ASEV3'
   properties: {
-    internalLoadBalancingMode: 'Web'
+    #disable-next-line BCP036
+    internalLoadBalancingMode: 3
     virtualNetwork: {
       id: subnetId
     }
