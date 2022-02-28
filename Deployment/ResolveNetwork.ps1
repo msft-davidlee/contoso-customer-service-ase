@@ -20,7 +20,7 @@ $subnets = (az network vnet subnet list -g $vnetRg --vnet-name $vnetName | Conve
 if (!$subnets) {
     throw "Unable to find eligible Subnets from Virtual Network $vnetName!"
 }          
-$subnetId = ($subnets | Where-Object { $_.name -eq "aks" }).id
+$subnetId = ($subnets | Where-Object { $_.name -eq "ase" }).id
 if (!$subnetId) {
     throw "Unable to find Subnet resource!"
 }
