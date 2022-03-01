@@ -116,7 +116,9 @@ resource csappplan 'Microsoft.Web/serverfarms@2021-01-15' = {
   location: location
   tags: tags
   properties: {
-    hostingEnvironmentProfile: ase
+    hostingEnvironmentProfile: {
+      id: ase.id
+    }
   }
   sku: {
     name: appPlanName
