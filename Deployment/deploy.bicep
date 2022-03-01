@@ -108,7 +108,7 @@ resource ase 'Microsoft.Web/hostingEnvironments@2021-03-01' = {
 }
 
 // var sqlConnectionString = 'Data Source=${sql.properties.fullyQualifiedDomainName};Initial Catalog=${dbName}; User Id=${sqlUsername};Password=${sqlPassword}'
-var appPlanName = 'I1'
+var appPlanName = 'I1v2'
 // Customer service website
 var csapp = '${stackName}csapp'
 resource csappplan 'Microsoft.Web/serverfarms@2021-01-15' = {
@@ -118,10 +118,11 @@ resource csappplan 'Microsoft.Web/serverfarms@2021-01-15' = {
   properties: {
     hostingEnvironmentProfile: {
       id: ase.id
-    }
+    }    
   }
   sku: {
     name: appPlanName
+    tier: 'IsolatedV2'
   }
 }
 
